@@ -4,125 +4,129 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="apple-mobile-web-app-capable" content="yes">
-<meta name="theme-color" content="#0a0f2e">
+<meta name="theme-color" content="#1a3a8f">
 <title>Proficients — Start Your WiFi Business</title>
-<link href="https://fonts.googleapis.com/css2?family=League+Spartan:wght@300;400;500;600;700;800;900&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=League+Spartan:wght@300;400;500;600;700;800;900&family=DM+Sans:ital,wght@0,300;0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
 <style>
 *{box-sizing:border-box;margin:0;padding:0;-webkit-tap-highlight-color:transparent}
 :root{
-  --navy:#0a0f2e;
-  --navy-mid:#111836;
-  --navy-light:#1a2550;
-  --navy-card:#151d42;
-  --gold:#c9a84c;
-  --gold-light:#e8c97a;
-  --gold-dim:rgba(201,168,76,0.15);
+  --blue:#1a3a8f;
+  --blue-dark:#122d73;
+  --blue-mid:#2251b8;
+  --blue-soft:#4a7fd4;
+  --blue-light:#e8eef8;
+  --blue-xlight:#f0f4fb;
+  --blue-apple:#0071e3;
   --white:#ffffff;
-  --off-white:#f0f2f8;
-  --muted:#8892b0;
-  --border:rgba(255,255,255,0.08);
-  --border-gold:rgba(201,168,76,0.3);
+  --bg:#f2f5fa;
+  --text:#0d1f5c;
+  --text-soft:#3a4a7a;
+  --muted:#6b7db3;
+  --border:#dce4f2;
+  --shadow:rgba(26,58,143,0.10);
+  --shadow-sm:rgba(26,58,143,0.06);
 }
 html{scroll-behavior:smooth}
-body{font-family:'DM Sans',sans-serif;background:var(--navy);color:var(--white);overflow-x:hidden}
-.bottom-nav{position:fixed;bottom:0;left:0;right:0;background:var(--navy-mid);display:flex;border-top:1px solid var(--border-gold);z-index:100;box-shadow:0 -4px 30px rgba(0,0,0,.4)}
-.nav-btn{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:10px 0 8px;font-size:9px;font-weight:600;color:var(--muted);border:none;background:none;cursor:pointer;gap:3px;letter-spacing:.8px;text-transform:uppercase;transition:color .25s;font-family:'DM Sans',sans-serif}
-.nav-btn svg{width:20px;height:20px;stroke-width:1.6;transition:transform .25s}
-.nav-btn.active{color:var(--gold)}
-.nav-btn.active svg{transform:scale(1.1)}
-.nav-dot{width:3px;height:3px;border-radius:50%;background:var(--gold);opacity:0;transition:opacity .25s}
+body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--text);overflow-x:hidden}
+.bottom-nav{position:fixed;bottom:0;left:0;right:0;background:rgba(255,255,255,0.92);display:flex;border-top:1px solid var(--border);z-index:100;box-shadow:0 -1px 0 var(--border),0 -8px 32px var(--shadow);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px)}
+.nav-btn{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:10px 0 10px;font-size:9px;font-weight:600;color:var(--muted);border:none;background:none;cursor:pointer;gap:4px;letter-spacing:.5px;text-transform:uppercase;transition:all .2s;font-family:'DM Sans',sans-serif}
+.nav-btn svg{width:22px;height:22px;stroke-width:1.6;transition:all .2s}
+.nav-btn.active{color:var(--blue)}
+.nav-btn.active svg{transform:scale(1.08)}
+.nav-dot{width:4px;height:4px;border-radius:50%;background:var(--blue);opacity:0;transition:opacity .2s;margin-top:-2px}
 .nav-btn.active .nav-dot{opacity:1}
-.page{display:none;padding-bottom:90px}
-.page.active{display:block;animation:fadeUp .3s ease}
-@keyframes fadeUp{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:translateY(0)}}
-.hero{background:var(--navy);padding:56px 24px 48px;position:relative;overflow:hidden;min-height:420px;display:flex;flex-direction:column;justify-content:flex-end}
-.hero-bg{position:absolute;inset:0;background:radial-gradient(ellipse at 80% 20%, rgba(201,168,76,0.12) 0%, transparent 60%), radial-gradient(ellipse at 10% 80%, rgba(26,37,80,0.8) 0%, transparent 50%)}
-.hero-grid{position:absolute;inset:0;background-image:linear-gradient(rgba(255,255,255,.03) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.03) 1px,transparent 1px);background-size:40px 40px}
+.page{display:none;padding-bottom:96px}
+.page.active{display:block;animation:fadeUp .3s cubic-bezier(.4,0,.2,1)}
+@keyframes fadeUp{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:translateY(0)}}
+.hero{background:var(--blue);padding:60px 24px 52px;position:relative;overflow:hidden;min-height:440px;display:flex;flex-direction:column;justify-content:flex-end;border-radius:0 0 32px 32px}
+.hero-bg{position:absolute;inset:0;background:radial-gradient(ellipse at 90% 10%, rgba(255,255,255,0.10) 0%, transparent 50%), radial-gradient(ellipse at 0% 100%, rgba(0,0,0,0.18) 0%, transparent 50%)}
+.hero-circles{position:absolute;top:-60px;right:-60px;width:260px;height:260px;border-radius:50%;border:1px solid rgba(255,255,255,.07)}
+.hero-circles::after{content:'';position:absolute;inset:30px;border-radius:50%;border:1px solid rgba(255,255,255,.05)}
 .hero-inner{position:relative;z-index:2}
-.hero-tag{display:inline-flex;align-items:center;gap:8px;background:var(--gold-dim);border:1px solid var(--border-gold);border-radius:4px;padding:5px 12px;font-size:10px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:var(--gold);margin-bottom:20px}
-.pulse{width:6px;height:6px;background:var(--gold);border-radius:50%;animation:pulse 2s infinite}
+.hero-tag{display:inline-flex;align-items:center;gap:7px;background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.2);border-radius:20px;padding:6px 14px;font-size:10px;font-weight:600;letter-spacing:1px;text-transform:uppercase;color:rgba(255,255,255,.9);margin-bottom:22px;backdrop-filter:blur(10px)}
+.pulse{width:6px;height:6px;background:#4ade80;border-radius:50%;animation:pulse 2s infinite;flex-shrink:0}
 @keyframes pulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.5;transform:scale(.8)}}
-.hero h1{font-family:'League Spartan',sans-serif;font-size:42px;font-weight:900;color:var(--white);line-height:1.0;margin-bottom:16px;letter-spacing:-1px}
-.hero h1 span{color:var(--gold)}
-.hero p{font-size:14px;color:var(--muted);line-height:1.7;max-width:290px;font-weight:400}
-.hero-line{width:40px;height:2px;background:var(--gold);margin:20px 0}
-.stats-strip{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--border);border-top:1px solid var(--border);border-bottom:1px solid var(--border)}
-.stat-card{background:var(--navy-mid);padding:20px 12px;text-align:center}
-.stat-num{font-family:'League Spartan',sans-serif;font-size:26px;font-weight:900;color:var(--gold);letter-spacing:-1px}
-.stat-label{font-size:10px;color:var(--muted);margin-top:4px;font-weight:500;line-height:1.3;letter-spacing:.3px}
-.section{padding:32px 20px 0}
-.section-header{display:flex;align-items:center;gap:12px;margin-bottom:20px}
-.section-line{width:24px;height:2px;background:var(--gold);flex-shrink:0}
-.section-title{font-family:'League Spartan',sans-serif;font-size:18px;font-weight:800;color:var(--white);letter-spacing:-.3px}
-.services-grid{display:flex;flex-direction:column;gap:1px;background:var(--border);border:1px solid var(--border);border-radius:16px;overflow:hidden}
-.service-card{background:var(--navy-card);padding:18px 20px;display:flex;align-items:center;gap:16px;transition:background .2s}
-.service-card:active{background:var(--navy-light)}
-.svc-icon{width:44px;height:44px;border-radius:10px;background:var(--gold-dim);border:1px solid var(--border-gold);display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:20px}
-.svc-info h3{font-size:13.5px;font-weight:600;color:var(--white);margin-bottom:3px;font-family:'League Spartan',sans-serif;letter-spacing:-.2px}
+.hero h1{font-family:'League Spartan',sans-serif;font-size:44px;font-weight:900;color:var(--white);line-height:.98;margin-bottom:18px;letter-spacing:-1.5px}
+.hero h1 span{color:rgba(255,255,255,.55)}
+.hero-divider{width:32px;height:3px;background:rgba(255,255,255,.35);border-radius:2px;margin:0 0 18px}
+.hero p{font-size:14.5px;color:rgba(255,255,255,.72);line-height:1.7;max-width:280px;font-weight:400}
+.stats-wrap{padding:20px 20px 0}
+.stats-strip{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
+.stat-card{background:var(--white);padding:18px 12px;text-align:center;border-radius:20px;box-shadow:0 2px 16px var(--shadow-sm);border:1px solid var(--border)}
+.stat-num{font-family:'League Spartan',sans-serif;font-size:26px;font-weight:900;color:var(--blue);letter-spacing:-1px}
+.stat-label{font-size:10px;color:var(--muted);margin-top:4px;font-weight:500;line-height:1.3;letter-spacing:.2px}
+.section{padding:28px 20px 0}
+.section-header{display:flex;align-items:center;gap:10px;margin-bottom:16px}
+.section-dot{width:8px;height:8px;background:var(--blue);border-radius:50%;flex-shrink:0}
+.section-title{font-family:'League Spartan',sans-serif;font-size:17px;font-weight:800;color:var(--text);letter-spacing:-.3px}
+.services-grid{display:flex;flex-direction:column;gap:10px}
+.service-card{background:var(--white);padding:16px 18px;display:flex;align-items:center;gap:14px;border-radius:18px;box-shadow:0 2px 12px var(--shadow-sm);border:1px solid var(--border);transition:all .2s}
+.service-card:active{transform:scale(.98);background:var(--blue-xlight)}
+.svc-icon{width:46px;height:46px;border-radius:14px;background:var(--blue-light);display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:21px}
+.svc-info h3{font-size:13.5px;font-weight:700;color:var(--text);margin-bottom:3px;font-family:'League Spartan',sans-serif;letter-spacing:-.2px}
 .svc-info p{font-size:11.5px;color:var(--muted);line-height:1.5}
-.svc-arrow{margin-left:auto;color:var(--gold);flex-shrink:0;opacity:.6}
-.cta-wrap{padding:24px 20px}
-.cta-btn{display:block;width:100%;background:var(--gold);color:var(--navy);border:none;border-radius:10px;padding:16px;font-size:14px;font-weight:700;font-family:'League Spartan',sans-serif;cursor:pointer;letter-spacing:.5px;transition:background .2s,transform .15s}
-.cta-btn:active{transform:scale(.98);background:var(--gold-light)}
-.page-header{background:var(--navy-mid);padding:48px 24px 28px;border-bottom:1px solid var(--border-gold);position:relative;overflow:hidden}
-.page-header::after{content:'';position:absolute;top:0;right:0;width:120px;height:120px;background:radial-gradient(circle,rgba(201,168,76,.1) 0%,transparent 70%)}
-.page-header-tag{font-size:10px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--gold);margin-bottom:8px}
-.page-header h2{font-family:'League Spartan',sans-serif;font-size:26px;font-weight:900;color:var(--white);letter-spacing:-.5px}
-.page-header p{font-size:13px;color:var(--muted);margin-top:6px}
-.about-card{background:var(--navy-card);border:1px solid var(--border);border-radius:14px;margin:20px;padding:22px}
-.about-card-tag{font-size:9px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--gold);margin-bottom:10px}
-.about-card h3{font-family:'League Spartan',sans-serif;font-size:17px;font-weight:800;color:var(--white);margin-bottom:10px;letter-spacing:-.3px}
-.about-card p{font-size:13.5px;color:var(--muted);line-height:1.8}
-.how-steps{display:flex;flex-direction:column;margin:0 20px 20px}
-.step{display:flex;gap:16px}
+.svc-arrow{margin-left:auto;color:var(--muted);flex-shrink:0}
+.cta-wrap{padding:20px}
+.cta-btn{display:flex;align-items:center;justify-content:center;gap:8px;width:100%;background:var(--blue);color:var(--white);border:none;border-radius:18px;padding:17px;font-size:14px;font-weight:700;font-family:'League Spartan',sans-serif;cursor:pointer;letter-spacing:.3px;transition:all .2s;box-shadow:0 6px 24px rgba(26,58,143,.3)}
+.cta-btn:active{transform:scale(.98);background:var(--blue-dark)}
+.page-header{background:var(--blue);padding:52px 24px 32px;border-radius:0 0 28px 28px;position:relative;overflow:hidden;margin-bottom:4px}
+.page-header::before{content:'';position:absolute;top:-40px;right:-40px;width:160px;height:160px;border-radius:50%;background:rgba(255,255,255,.05)}
+.page-header::after{content:'';position:absolute;bottom:-20px;left:20px;width:80px;height:80px;border-radius:50%;background:rgba(255,255,255,.04)}
+.ph-tag{font-size:10px;font-weight:600;letter-spacing:1.5px;text-transform:uppercase;color:rgba(255,255,255,.55);margin-bottom:8px}
+.page-header h2{font-family:'League Spartan',sans-serif;font-size:28px;font-weight:900;color:var(--white);letter-spacing:-.6px;line-height:1.1}
+.page-header p{font-size:13px;color:rgba(255,255,255,.65);margin-top:7px;font-weight:400}
+.about-card{background:var(--white);border-radius:20px;margin:16px 20px;padding:22px;box-shadow:0 2px 16px var(--shadow-sm);border:1px solid var(--border)}
+.ac-tag{font-size:9px;font-weight:700;letter-spacing:1.8px;text-transform:uppercase;color:var(--blue-apple);margin-bottom:8px}
+.about-card h3{font-family:'League Spartan',sans-serif;font-size:17px;font-weight:800;color:var(--text);margin-bottom:10px;letter-spacing:-.3px}
+.about-card p{font-size:13.5px;color:var(--text-soft);line-height:1.8}
+.steps-wrap{margin:0 20px 20px}
+.step{display:flex;gap:16px;position:relative}
 .step-left{display:flex;flex-direction:column;align-items:center}
-.step-num{width:34px;height:34px;border-radius:8px;background:var(--gold-dim);border:1px solid var(--border-gold);color:var(--gold);font-family:'League Spartan',sans-serif;font-size:14px;font-weight:800;display:flex;align-items:center;justify-content:center;flex-shrink:0}
-.step-line{width:1px;background:var(--border-gold);flex:1;margin:6px 0;min-height:20px}
+.step-num{width:36px;height:36px;border-radius:12px;background:var(--blue);color:var(--white);font-family:'League Spartan',sans-serif;font-size:15px;font-weight:800;display:flex;align-items:center;justify-content:center;flex-shrink:0;box-shadow:0 4px 12px rgba(26,58,143,.25)}
+.step-line{width:2px;background:var(--blue-light);flex:1;margin:6px 0;min-height:20px;border-radius:2px}
 .step:last-child .step-line{display:none}
-.step-content{padding:4px 0 26px}
-.step-content h4{font-family:'League Spartan',sans-serif;font-size:15px;font-weight:700;color:var(--white);margin-bottom:5px;letter-spacing:-.2px}
-.step-content p{font-size:12.5px;color:var(--muted);line-height:1.6}
-.form-wrap{padding:20px}
-.form-group{margin-bottom:18px}
-.form-group label{display:block;font-size:10px;font-weight:700;color:var(--muted);margin-bottom:8px;letter-spacing:1.5px;text-transform:uppercase}
-.form-group label .optional{font-weight:400;color:rgba(136,146,176,.6);font-size:10px;text-transform:none;letter-spacing:0;margin-left:4px}
-.form-group input,.form-group select,.form-group textarea{width:100%;padding:14px 16px;border:1px solid var(--border);border-radius:10px;font-size:14px;font-family:'DM Sans',sans-serif;color:var(--white);background:var(--navy-card);outline:none;transition:border-color .2s,box-shadow .2s}
-.form-group input::placeholder,.form-group textarea::placeholder{color:rgba(136,146,176,.5)}
-.form-group input:focus,.form-group select:focus,.form-group textarea:focus{border-color:var(--gold);box-shadow:0 0 0 3px rgba(201,168,76,.1)}
-.form-group textarea{resize:none;height:90px}
-.form-group select{appearance:none;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%238892b0' stroke-width='2'%3E%3Cpath d='M6 9l6 6 6-6'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 16px center;color:var(--white)}
-.form-group select option{background:var(--navy-mid);color:var(--white)}
-.submit-btn{width:100%;background:var(--gold);color:var(--navy);border:none;border-radius:10px;padding:16px;font-size:14px;font-weight:700;font-family:'League Spartan',sans-serif;cursor:pointer;letter-spacing:.5px;margin-top:4px;transition:background .2s,transform .15s}
+.step-content{padding:4px 0 28px}
+.step-content h4{font-family:'League Spartan',sans-serif;font-size:15px;font-weight:800;color:var(--text);margin-bottom:5px;letter-spacing:-.2px}
+.step-content p{font-size:12.5px;color:var(--muted);line-height:1.65}
+.form-wrap{padding:16px 20px 20px}
+.form-group{margin-bottom:16px}
+.form-label{display:block;font-size:11px;font-weight:700;color:var(--muted);margin-bottom:8px;letter-spacing:1px;text-transform:uppercase}
+.optional{font-weight:400;color:rgba(107,125,179,.6);font-size:10px;text-transform:none;letter-spacing:0;margin-left:4px}
+.form-group input,.form-group select,.form-group textarea{width:100%;padding:14px 16px;border:1.5px solid var(--border);border-radius:14px;font-size:14px;font-family:'DM Sans',sans-serif;color:var(--text);background:var(--white);outline:none;transition:all .2s;box-shadow:0 1px 4px var(--shadow-sm)}
+.form-group input:focus,.form-group select:focus,.form-group textarea:focus{border-color:var(--blue);box-shadow:0 0 0 4px rgba(26,58,143,.08),0 1px 4px var(--shadow-sm)}
+.form-group textarea{resize:none;height:88px}
+.form-group select{appearance:none;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%236b7db3' stroke-width='2.5'%3E%3Cpath d='M6 9l6 6 6-6'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 16px center;background-color:var(--white)}
+.submit-btn{width:100%;background:var(--blue);color:var(--white);border:none;border-radius:18px;padding:17px;font-size:15px;font-weight:700;font-family:'League Spartan',sans-serif;cursor:pointer;letter-spacing:.3px;margin-top:6px;transition:all .2s;box-shadow:0 6px 24px rgba(26,58,143,.3)}
 .submit-btn:active{transform:scale(.98)}
 .submit-btn:disabled{opacity:.5;cursor:not-allowed}
-.success-box{display:none;background:rgba(201,168,76,.08);border:1px solid var(--border-gold);border-radius:14px;padding:28px;text-align:center;margin-top:16px}
-.success-icon{font-size:36px;margin-bottom:12px}
-.success-box h3{font-family:'League Spartan',sans-serif;font-size:18px;font-weight:800;color:var(--gold);margin-bottom:8px}
+.success-box{display:none;background:var(--blue-light);border:1.5px solid var(--border);border-radius:20px;padding:30px;text-align:center;margin-top:16px}
+.success-icon{font-size:44px;margin-bottom:14px}
+.success-box h3{font-family:'League Spartan',sans-serif;font-size:19px;font-weight:900;color:var(--blue);margin-bottom:8px}
 .success-box p{font-size:13px;color:var(--muted);line-height:1.7}
-.faq-wrap{padding:20px}
-.faq-item{background:var(--navy-card);border:1px solid var(--border);border-radius:12px;margin-bottom:10px;overflow:hidden;transition:border-color .2s}
-.faq-item.open{border-color:var(--border-gold)}
-.faq-q{display:flex;align-items:center;justify-content:space-between;padding:18px 20px;cursor:pointer;gap:12px}
-.faq-q span{font-family:'League Spartan',sans-serif;font-size:14px;font-weight:700;color:var(--white);line-height:1.4;letter-spacing:-.1px}
-.faq-icon{width:22px;height:22px;border-radius:50%;border:1px solid var(--border-gold);background:var(--gold-dim);display:flex;align-items:center;justify-content:center;flex-shrink:0;color:var(--gold);font-size:14px;transition:transform .25s}
-.faq-item.open .faq-icon{transform:rotate(45deg)}
-.faq-a{display:none;padding:0 20px 18px;font-size:13px;color:var(--muted);line-height:1.8}
+.faq-wrap{padding:16px 20px 20px}
+.faq-item{background:var(--white);border:1.5px solid var(--border);border-radius:18px;margin-bottom:10px;overflow:hidden;transition:all .2s;box-shadow:0 2px 12px var(--shadow-sm)}
+.faq-item.open{border-color:var(--blue);box-shadow:0 4px 20px rgba(26,58,143,.12)}
+.faq-q{display:flex;align-items:center;justify-content:space-between;padding:18px 20px;cursor:pointer;gap:14px}
+.faq-q span{font-family:'League Spartan',sans-serif;font-size:14px;font-weight:700;color:var(--text);line-height:1.4;letter-spacing:-.1px}
+.faq-icon{width:26px;height:26px;border-radius:50%;border:1.5px solid var(--border);background:var(--blue-light);display:flex;align-items:center;justify-content:center;flex-shrink:0;color:var(--blue);font-size:17px;font-weight:300;transition:all .25s;line-height:1}
+.faq-item.open .faq-icon{transform:rotate(45deg);background:var(--blue);color:var(--white);border-color:var(--blue)}
+.faq-a{display:none;padding:0 20px 18px;font-size:13.5px;color:var(--text-soft);line-height:1.8}
 .faq-item.open .faq-a{display:block}
-.faq-cta{background:var(--gold-dim);border:1px solid var(--border-gold);border-radius:12px;padding:22px;margin-top:20px;text-align:center}
-.faq-cta p{font-size:13px;color:var(--muted);margin-bottom:14px;line-height:1.6}
-.faq-cta-btn{display:inline-block;background:var(--gold);color:var(--navy);border:none;border-radius:8px;padding:12px 24px;font-size:13px;font-weight:700;font-family:'League Spartan',sans-serif;cursor:pointer;letter-spacing:.5px}
-.contact-card{background:var(--navy-card);border:1px solid var(--border);border-radius:14px;margin:20px;overflow:hidden}
+.faq-cta{background:var(--blue);border-radius:20px;padding:24px;margin-top:16px;text-align:center;box-shadow:0 6px 24px rgba(26,58,143,.2)}
+.faq-cta p{font-size:13px;color:rgba(255,255,255,.75);margin-bottom:14px;line-height:1.6}
+.faq-cta-btn{display:inline-flex;align-items:center;gap:6px;background:var(--white);color:var(--blue);border:none;border-radius:12px;padding:12px 24px;font-size:13px;font-weight:700;font-family:'League Spartan',sans-serif;cursor:pointer;letter-spacing:.3px;box-shadow:0 2px 8px rgba(0,0,0,.1)}
+.contact-card{background:var(--white);border:1px solid var(--border);border-radius:22px;margin:16px 20px;overflow:hidden;box-shadow:0 2px 16px var(--shadow-sm)}
 .contact-item{display:flex;align-items:center;gap:14px;padding:16px 20px;border-bottom:1px solid var(--border);text-decoration:none;transition:background .15s}
 .contact-item:last-child{border-bottom:none}
-.contact-item:active{background:var(--navy-light)}
-.contact-icon{width:40px;height:40px;border-radius:10px;background:var(--gold-dim);border:1px solid var(--border-gold);display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:18px}
-.contact-text h4{font-family:'League Spartan',sans-serif;font-size:13px;font-weight:700;color:var(--white);letter-spacing:-.1px}
+.contact-item:active{background:var(--blue-xlight)}
+.contact-icon{width:42px;height:42px;border-radius:14px;background:var(--blue-light);display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:19px}
+.contact-text h4{font-family:'League Spartan',sans-serif;font-size:13.5px;font-weight:700;color:var(--text);letter-spacing:-.1px}
 .contact-text p{font-size:12px;color:var(--muted);margin-top:2px}
-.chevron{margin-left:auto;color:var(--gold);opacity:.5;flex-shrink:0}
-.location-card{background:var(--gold-dim);border:1px solid var(--border-gold);border-radius:14px;margin:0 20px 20px;padding:22px}
-.location-card h3{font-family:'League Spartan',sans-serif;font-size:14px;font-weight:800;color:var(--gold);margin-bottom:8px;letter-spacing:-.1px}
-.location-card p{font-size:13px;color:var(--muted);line-height:1.7}
-.tagline{text-align:center;padding:12px 20px 4px;font-size:12px;color:rgba(136,146,176,.5);font-style:italic;letter-spacing:.5px}
+.chevron{margin-left:auto;color:var(--muted);flex-shrink:0;opacity:.5}
+.location-card{background:var(--blue);border-radius:22px;margin:0 20px 8px;padding:22px;box-shadow:0 4px 20px rgba(26,58,143,.2)}
+.location-card h3{font-family:'League Spartan',sans-serif;font-size:14px;font-weight:800;color:var(--white);margin-bottom:8px}
+.location-card p{font-size:13px;color:rgba(255,255,255,.72);line-height:1.7}
+.tagline{text-align:center;padding:14px 20px 6px;font-size:12px;color:var(--muted);font-style:italic;letter-spacing:.3px}
 </style>
 </head>
 <body>
@@ -131,21 +135,23 @@ body{font-family:'DM Sans',sans-serif;background:var(--navy);color:var(--white);
 <div class="page active" id="page-home">
   <div class="hero">
     <div class="hero-bg"></div>
-    <div class="hero-grid"></div>
+    <div class="hero-circles"></div>
     <div class="hero-inner">
       <div class="hero-tag"><span class="pulse"></span> Accepting New Clients</div>
       <h1>Start Your<br>Own <span>WiFi</span><br>Business</h1>
-      <div class="hero-line"></div>
+      <div class="hero-divider"></div>
       <p>We install, configure and fully manage your hotspot — you earn passively every month.</p>
     </div>
   </div>
-  <div class="stats-strip">
-    <div class="stat-card"><div class="stat-num">6+</div><div class="stat-label">Services Offered</div></div>
-    <div class="stat-card"><div class="stat-num">0</div><div class="stat-label">Tech Skills Needed</div></div>
-    <div class="stat-card"><div class="stat-num">UG</div><div class="stat-label">Serving Uganda</div></div>
+  <div class="stats-wrap">
+    <div class="stats-strip">
+      <div class="stat-card"><div class="stat-num">6+</div><div class="stat-label">Services Offered</div></div>
+      <div class="stat-card"><div class="stat-num">0</div><div class="stat-label">Tech Skills Needed</div></div>
+      <div class="stat-card"><div class="stat-num">UG</div><div class="stat-label">Serving Uganda</div></div>
+    </div>
   </div>
   <div class="section">
-    <div class="section-header"><div class="section-line"></div><div class="section-title">Our Services</div></div>
+    <div class="section-header"><div class="section-dot"></div><div class="section-title">Our Services</div></div>
     <div class="services-grid">
       <div class="service-card"><div class="svc-icon">🏠</div><div class="svc-info"><h3>Home Business Installation</h3><p>Complete WiFi hotspot setup at your location.</p></div><div class="svc-arrow"><svg fill="none" viewBox="0 0 24 24" stroke="currentColor" width="16" height="16"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/></svg></div></div>
       <div class="service-card"><div class="svc-icon">📡</div><div class="svc-info"><h3>WiFi Business Management</h3><p>We handle uptime, users and performance.</p></div><div class="svc-arrow"><svg fill="none" viewBox="0 0 24 24" stroke="currentColor" width="16" height="16"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/></svg></div></div>
@@ -163,24 +169,24 @@ body{font-family:'DM Sans',sans-serif;background:var(--navy);color:var(--white);
 <!-- ABOUT -->
 <div class="page" id="page-about">
   <div class="page-header">
-    <div class="page-header-tag">About Us</div>
+    <div class="ph-tag">About Us</div>
     <h2>Proficients WiFi</h2>
     <p>Business Installation & Management</p>
   </div>
-  <div class="about-card" style="margin-top:20px;">
-    <div class="about-card-tag">Who We Are</div>
+  <div class="about-card">
+    <div class="ac-tag">Who We Are</div>
     <h3>Uganda's WiFi Business Experts</h3>
     <p>Proficients is a WiFi business installation and management company based in Uganda. We help ordinary people become WiFi business owners — with zero technical knowledge required. We handle the hard part. You earn.</p>
   </div>
   <div class="about-card">
-    <div class="about-card-tag">Our Mission</div>
+    <div class="ac-tag">Our Mission</div>
     <h3>WiFi Ownership for Every Ugandan</h3>
     <p>To make WiFi business ownership accessible to every Ugandan — by providing end-to-end installation, automation and management services that let our clients earn passively from their own hotspot businesses.</p>
   </div>
-  <div class="section" style="padding-bottom:20px;">
-    <div class="section-header"><div class="section-line"></div><div class="section-title">How It Works</div></div>
+  <div class="section" style="padding-bottom:16px;">
+    <div class="section-header"><div class="section-dot"></div><div class="section-title">How It Works</div></div>
   </div>
-  <div class="how-steps">
+  <div class="steps-wrap">
     <div class="step"><div class="step-left"><div class="step-num">1</div><div class="step-line"></div></div><div class="step-content"><h4>You Apply</h4><p>Fill out our form. We get in touch within 24 hours to discuss your goals.</p></div></div>
     <div class="step"><div class="step-left"><div class="step-num">2</div><div class="step-line"></div></div><div class="step-content"><h4>Site Inspection</h4><p>Our team visits your location and creates a tailored plan.</p></div></div>
     <div class="step"><div class="step-left"><div class="step-num">3</div><div class="step-line"></div></div><div class="step-content"><h4>We Install & Configure</h4><p>Professional installation. Your hotspot goes live and is ready for customers.</p></div></div>
@@ -192,16 +198,16 @@ body{font-family:'DM Sans',sans-serif;background:var(--navy);color:var(--white);
 <!-- APPLY -->
 <div class="page" id="page-apply">
   <div class="page-header">
-    <div class="page-header-tag">Get Started</div>
+    <div class="ph-tag">Get Started</div>
     <h2>Start Your Application</h2>
     <p>Takes less than 2 minutes. We'll call you back.</p>
   </div>
   <div class="form-wrap">
-    <div class="form-group"><label>Full Name</label><input type="text" id="f-name" placeholder="Your full name"></div>
-    <div class="form-group"><label>Phone Number</label><input type="tel" id="f-phone" placeholder="e.g. 0756 483 589"></div>
-    <div class="form-group"><label>Email Address <span class="optional">(optional)</span></label><input type="email" id="f-email" placeholder="your@email.com"></div>
-    <div class="form-group"><label>Location / Area</label><input type="text" id="f-location" placeholder="e.g. Namasuba, Kampala"></div>
-    <div class="form-group"><label>Service Interested In</label>
+    <div class="form-group"><label class="form-label">Full Name</label><input type="text" id="f-name" placeholder="Your full name"></div>
+    <div class="form-group"><label class="form-label">Phone Number</label><input type="tel" id="f-phone" placeholder="e.g. 0756 483 589"></div>
+    <div class="form-group"><label class="form-label">Email Address <span class="optional">(optional)</span></label><input type="email" id="f-email" placeholder="your@email.com"></div>
+    <div class="form-group"><label class="form-label">Location / Area</label><input type="text" id="f-location" placeholder="e.g. Namasuba, Kampala"></div>
+    <div class="form-group"><label class="form-label">Service Interested In</label>
       <select id="f-service">
         <option value="">Select a service...</option>
         <option>Home Business Installation</option>
@@ -212,7 +218,7 @@ body{font-family:'DM Sans',sans-serif;background:var(--navy);color:var(--white);
         <option>Full Package (All Services)</option>
       </select>
     </div>
-    <div class="form-group"><label>Your Situation <span class="optional">(optional)</span></label><textarea id="f-message" placeholder="E.g. I have a shop in Namasuba and want to offer WiFi to customers..."></textarea></div>
+    <div class="form-group"><label class="form-label">Your Situation <span class="optional">(optional)</span></label><textarea id="f-message" placeholder="E.g. I have a shop in Namasuba and want to offer WiFi to customers..."></textarea></div>
     <button class="submit-btn" id="submit-btn" onclick="submitForm()">Submit Application</button>
     <div class="success-box" id="success-box">
       <div class="success-icon">✅</div>
@@ -225,7 +231,7 @@ body{font-family:'DM Sans',sans-serif;background:var(--navy);color:var(--white);
 <!-- FAQ -->
 <div class="page" id="page-faq">
   <div class="page-header">
-    <div class="page-header-tag">FAQ</div>
+    <div class="ph-tag">FAQ</div>
     <h2>Common Questions</h2>
     <p>Everything you need to know</p>
   </div>
@@ -268,16 +274,16 @@ body{font-family:'DM Sans',sans-serif;background:var(--navy);color:var(--white);
 <!-- CONTACT -->
 <div class="page" id="page-contact">
   <div class="page-header">
-    <div class="page-header-tag">Contact</div>
+    <div class="ph-tag">Contact</div>
     <h2>Get In Touch</h2>
     <p>We're happy to hear from you</p>
   </div>
-  <div class="contact-card" style="margin-top:20px;">
-    <a class="contact-item" href="tel:+256749516341"><div class="contact-icon">📞</div><div class="contact-text"><h4>Call Us</h4><p>+256 749 516 341</p></div><div class="chevron"><svg fill="none" viewBox="0 0 24 24" stroke="currentColor" width="14" height="14"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg></div></a>
-    <a class="contact-item" href="tel:+256756483589"><div class="contact-icon">📞</div><div class="contact-text"><h4>Call Us</h4><p>+256 756 483 589</p></div><div class="chevron"><svg fill="none" viewBox="0 0 24 24" stroke="currentColor" width="14" height="14"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg></div></a>
-    <a class="contact-item" href="tel:+256792287545"><div class="contact-icon">📞</div><div class="contact-text"><h4>Call Us</h4><p>+256 792 287 545</p></div><div class="chevron"><svg fill="none" viewBox="0 0 24 24" stroke="currentColor" width="14" height="14"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg></div></a>
-    <a class="contact-item" href="https://wa.me/256756483589" target="_blank"><div class="contact-icon">💬</div><div class="contact-text"><h4>WhatsApp</h4><p>Message us directly</p></div><div class="chevron"><svg fill="none" viewBox="0 0 24 24" stroke="currentColor" width="14" height="14"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg></div></a>
-    <a class="contact-item" href="mailto:proficients7@gmail.com"><div class="contact-icon">✉️</div><div class="contact-text"><h4>Email Us</h4><p>proficients7@gmail.com</p></div><div class="chevron"><svg fill="none" viewBox="0 0 24 24" stroke="currentColor" width="14" height="14"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg></div></a>
+  <div class="contact-card">
+    <a class="contact-item" href="tel:+256749516341"><div class="contact-icon">📞</div><div class="contact-text"><h4>Call Us</h4><p>+256 749 516 341</p></div><div class="chevron"><svg fill="none" viewBox="0 0 24 24" stroke="currentColor" width="14" height="14"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M9 5l7 7-7 7"/></svg></div></a>
+    <a class="contact-item" href="tel:+256756483589"><div class="contact-icon">📞</div><div class="contact-text"><h4>Call Us</h4><p>+256 756 483 589</p></div><div class="chevron"><svg fill="none" viewBox="0 0 24 24" stroke="currentColor" width="14" height="14"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M9 5l7 7-7 7"/></svg></div></a>
+    <a class="contact-item" href="tel:+256792287545"><div class="contact-icon">📞</div><div class="contact-text"><h4>Call Us</h4><p>+256 792 287 545</p></div><div class="chevron"><svg fill="none" viewBox="0 0 24 24" stroke="currentColor" width="14" height="14"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M9 5l7 7-7 7"/></svg></div></a>
+    <a class="contact-item" href="https://wa.me/256756483589" target="_blank"><div class="contact-icon">💬</div><div class="contact-text"><h4>WhatsApp</h4><p>Message us directly</p></div><div class="chevron"><svg fill="none" viewBox="0 0 24 24" stroke="currentColor" width="14" height="14"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M9 5l7 7-7 7"/></svg></div></a>
+    <a class="contact-item" href="mailto:proficients7@gmail.com"><div class="contact-icon">✉️</div><div class="contact-text"><h4>Email Us</h4><p>proficients7@gmail.com</p></div><div class="chevron"><svg fill="none" viewBox="0 0 24 24" stroke="currentColor" width="14" height="14"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M9 5l7 7-7 7"/></svg></div></a>
   </div>
   <div class="location-card">
     <h3>📍 Our Location</h3>
@@ -297,9 +303,7 @@ body{font-family:'DM Sans',sans-serif;background:var(--navy);color:var(--white);
 
 <script>
 function showPage(id){document.querySelectorAll('.page').forEach(function(p){p.classList.remove('active')});document.querySelectorAll('.nav-btn').forEach(function(b){b.classList.remove('active')});document.getElementById('page-'+id).classList.add('active');document.getElementById('nav-'+id).classList.add('active');window.scrollTo(0,0)}
-
 function toggleFaq(el){var isOpen=el.classList.contains('open');document.querySelectorAll('.faq-item').forEach(function(i){i.classList.remove('open')});if(!isOpen)el.classList.add('open')}
-
 function submitForm(){
   var name=(document.getElementById('f-name').value||'').trim();
   var phone=(document.getElementById('f-phone').value||'').trim();
@@ -320,4 +324,4 @@ function submitForm(){
 }
 </script>
 </body>
-                                                                                                                                          </html>
+                              </html>
