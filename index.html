@@ -1,0 +1,303 @@
+
+
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="theme-color" content="#1F4ED8">
+<title>Proficients — Start Your WiFi Business</title>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Syne:wght@700;800&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box;margin:0;padding:0;-webkit-tap-highlight-color:transparent}
+:root{--blue:#1F4ED8;--blue-dark:#1239a8;--blue-deeper:#0c2470;--blue-light:#EEF3FF;--blue-mid:#3B6EF5;--text:#0f172a;--muted:#64748b;--border:#e2e8f0}
+html{scroll-behavior:smooth}
+body{font-family:'Plus Jakarta Sans',sans-serif;background:#f8faff;color:var(--text);overflow-x:hidden}
+.bottom-nav{position:fixed;bottom:0;left:0;right:0;background:#fff;display:flex;border-top:1px solid var(--border);z-index:100;box-shadow:0 -4px 20px rgba(31,78,216,.08)}
+.nav-btn{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:10px 0 8px;font-size:10px;font-weight:600;color:var(--muted);border:none;background:none;cursor:pointer;gap:3px;letter-spacing:.3px;transition:color .2s}
+.nav-btn svg{width:22px;height:22px;stroke-width:1.8;transition:transform .2s}
+.nav-btn.active{color:var(--blue)}
+.nav-btn.active svg{transform:scale(1.15)}
+.nav-dot{width:4px;height:4px;border-radius:50%;background:var(--blue);opacity:0;transition:opacity .2s}
+.nav-btn.active .nav-dot{opacity:1}
+.page{display:none;padding-bottom:88px;animation:fadeUp .25s ease}
+.page.active{display:block}
+@keyframes fadeUp{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:translateY(0)}}
+.hero{background:linear-gradient(145deg,var(--blue-deeper) 0%,var(--blue) 65%,var(--blue-mid) 100%);padding:52px 24px 64px;position:relative;overflow:hidden}
+.hero::before{content:'';position:absolute;top:-80px;right:-60px;width:260px;height:260px;border-radius:50%;background:rgba(255,255,255,.06)}
+.hero::after{content:'';position:absolute;bottom:-40px;left:-30px;width:180px;height:180px;border-radius:50%;background:rgba(255,255,255,.04)}
+.hero-inner{position:relative;z-index:1}
+.hero-logo{width:64px;height:64px;border-radius:16px;background:#fff;padding:8px;margin-bottom:20px;box-shadow:0 8px 24px rgba(0,0,0,.2)}
+.hero-logo img{width:100%;height:100%;object-fit:contain}
+.hero h1{font-family:'Syne',sans-serif;font-size:28px;font-weight:800;color:#fff;line-height:1.2;margin-bottom:10px}
+.hero h1 span{color:#93c5fd}
+.hero p{font-size:14px;color:rgba(255,255,255,.72);line-height:1.6;max-width:300px}
+.hero-badge{display:inline-flex;align-items:center;gap:6px;margin-top:18px;background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.2);border-radius:30px;padding:6px 14px;font-size:12px;color:rgba(255,255,255,.85);font-weight:500}
+.pulse{width:7px;height:7px;background:#4ade80;border-radius:50%;display:inline-block;animation:pulse 2s infinite}
+@keyframes pulse{0%,100%{opacity:1}50%{opacity:.4}}
+.stats-strip{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;padding:20px}
+.stat-card{background:#fff;border-radius:14px;padding:16px 12px;text-align:center;box-shadow:0 2px 12px rgba(31,78,216,.07);border:1px solid var(--border)}
+.stat-num{font-family:'Syne',sans-serif;font-size:22px;font-weight:800;color:var(--blue)}
+.stat-label{font-size:10px;color:var(--muted);margin-top:3px;font-weight:500;line-height:1.3}
+.section{padding:28px 20px 0}
+.section-title{font-family:'Syne',sans-serif;font-size:17px;font-weight:800;color:var(--text);margin-bottom:16px}
+.services-grid{display:flex;flex-direction:column;gap:12px}
+.service-card{background:#fff;border-radius:16px;padding:18px;display:flex;align-items:center;gap:16px;box-shadow:0 2px 12px rgba(31,78,216,.06);border:1px solid var(--border);transition:transform .15s}
+.service-card:active{transform:scale(.98)}
+.svc-icon{width:48px;height:48px;border-radius:14px;background:var(--blue-light);display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:22px}
+.svc-info h3{font-size:14px;font-weight:700;color:var(--text);margin-bottom:3px}
+.svc-info p{font-size:12px;color:var(--muted);line-height:1.5}
+.svc-arrow{margin-left:auto;color:var(--blue);flex-shrink:0}
+.cta-btn{display:block;width:calc(100% - 40px);margin:24px 20px;background:var(--blue);color:#fff;border:none;border-radius:14px;padding:16px;font-size:15px;font-weight:700;font-family:'Plus Jakarta Sans',sans-serif;cursor:pointer;box-shadow:0 4px 16px rgba(31,78,216,.3);transition:background .2s,transform .15s}
+.cta-btn:active{transform:scale(.98);background:var(--blue-dark)}
+.page-header{background:var(--blue);padding:40px 24px 32px}
+.page-header h2{font-family:'Syne',sans-serif;font-size:22px;font-weight:800;color:#fff}
+.page-header p{font-size:13px;color:rgba(255,255,255,.7);margin-top:6px}
+.about-card{background:#fff;border-radius:16px;margin:20px;padding:22px;box-shadow:0 2px 12px rgba(31,78,216,.07);border:1px solid var(--border)}
+.about-card h3{font-size:15px;font-weight:700;color:var(--blue);margin-bottom:10px}
+.about-card p{font-size:13.5px;color:#374151;line-height:1.7}
+.how-steps{display:flex;flex-direction:column;margin:0 20px 20px}
+.step{display:flex;gap:16px}
+.step-left{display:flex;flex-direction:column;align-items:center}
+.step-num{width:36px;height:36px;border-radius:50%;background:var(--blue);color:#fff;font-family:'Syne',sans-serif;font-size:14px;font-weight:800;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.step-line{width:2px;background:var(--blue-light);flex:1;margin:4px 0;min-height:24px}
+.step:last-child .step-line{display:none}
+.step-content{padding:4px 0 24px}
+.step-content h4{font-size:14px;font-weight:700;margin-bottom:4px}
+.step-content p{font-size:12.5px;color:var(--muted);line-height:1.6}
+.form-wrap{padding:20px}
+.form-group{margin-bottom:18px}
+.form-group label{display:block;font-size:12px;font-weight:700;color:var(--text);margin-bottom:7px;letter-spacing:.3px;text-transform:uppercase}
+.form-group label .optional{font-weight:400;color:var(--muted);font-size:11px;text-transform:none;margin-left:4px}
+.form-group input,.form-group select,.form-group textarea{width:100%;padding:14px 16px;border:1.5px solid var(--border);border-radius:12px;font-size:14px;font-family:'Plus Jakarta Sans',sans-serif;color:var(--text);background:#fff;outline:none;transition:border-color .2s,box-shadow .2s}
+.form-group input:focus,.form-group select:focus,.form-group textarea:focus{border-color:var(--blue);box-shadow:0 0 0 3px rgba(31,78,216,.1)}
+.form-group textarea{resize:none;height:90px}
+.form-group select{appearance:none;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%2364748b' stroke-width='2'%3E%3Cpath d='M6 9l6 6 6-6'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 16px center}
+.submit-btn{width:100%;background:var(--blue);color:#fff;border:none;border-radius:14px;padding:16px;font-size:15px;font-weight:700;font-family:'Plus Jakarta Sans',sans-serif;cursor:pointer;box-shadow:0 4px 16px rgba(31,78,216,.3);margin-top:4px;transition:background .2s,transform .15s}
+.submit-btn:active{transform:scale(.98)}
+.submit-btn:disabled{opacity:.6;cursor:not-allowed}
+.success-box{display:none;background:#ecfdf5;border:1.5px solid #10b981;border-radius:14px;padding:24px;text-align:center;margin-top:16px}
+.success-box .check{font-size:40px;margin-bottom:10px}
+.success-box h3{font-size:16px;font-weight:700;color:#065f46;margin-bottom:6px}
+.success-box p{font-size:13px;color:#047857;line-height:1.6}
+.chat-header{background:var(--blue);padding:40px 24px 24px;display:flex;align-items:center;gap:14px}
+.chat-avatar{width:48px;height:48px;border-radius:14px;background:rgba(255,255,255,.15);display:flex;align-items:center;justify-content:center}
+.chat-avatar img{width:36px;height:36px;object-fit:contain}
+.chat-info h2{font-family:'Syne',sans-serif;font-size:18px;font-weight:800;color:#fff}
+.chat-info p{font-size:12px;color:rgba(255,255,255,.7);margin-top:2px}
+.online-dot{display:inline-block;width:7px;height:7px;background:#4ade80;border-radius:50%;margin-right:5px;animation:pulse 2s infinite}
+.chat-messages{padding:20px;display:flex;flex-direction:column;gap:14px;min-height:300px}
+.msg{max-width:82%}
+.msg.bot{align-self:flex-start}
+.msg.user{align-self:flex-end}
+.msg-bubble{padding:12px 16px;border-radius:18px;font-size:13.5px;line-height:1.6}
+.msg.bot .msg-bubble{background:#fff;color:var(--text);border-bottom-left-radius:4px;box-shadow:0 2px 8px rgba(0,0,0,.06);border:1px solid var(--border)}
+.msg.user .msg-bubble{background:var(--blue);color:#fff;border-bottom-right-radius:4px}
+.msg-time{font-size:10px;color:var(--muted);margin-top:4px;padding:0 4px}
+.msg.user .msg-time{text-align:right}
+.quick-replies{display:flex;gap:8px;flex-wrap:wrap;padding:0 20px 16px}
+.qr-btn{background:var(--blue-light);border:1.5px solid rgba(31,78,216,.2);border-radius:20px;padding:8px 14px;font-size:12px;font-weight:600;color:var(--blue);cursor:pointer;font-family:'Plus Jakarta Sans',sans-serif;white-space:nowrap}
+.chat-input-bar{position:sticky;bottom:72px;background:#fff;border-top:1px solid var(--border);padding:12px 16px;display:flex;gap:10px;align-items:center}
+.chat-input{flex:1;border:1.5px solid var(--border);border-radius:24px;padding:11px 16px;font-size:14px;font-family:'Plus Jakarta Sans',sans-serif;outline:none}
+.chat-input:focus{border-color:var(--blue)}
+.send-btn{width:42px;height:42px;border-radius:50%;background:var(--blue);border:none;cursor:pointer;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.send-btn svg{width:18px;height:18px}
+.typing{display:none;align-self:flex-start;padding:12px 16px;background:#fff;border:1px solid var(--border);border-radius:18px;border-bottom-left-radius:4px;box-shadow:0 2px 8px rgba(0,0,0,.06)}
+.typing.show{display:flex;gap:4px;align-items:center}
+.td{width:7px;height:7px;background:var(--muted);border-radius:50%;animation:tb 1.2s infinite}
+.td:nth-child(2){animation-delay:.2s}
+.td:nth-child(3){animation-delay:.4s}
+@keyframes tb{0%,60%,100%{transform:translateY(0)}30%{transform:translateY(-6px)}}
+.contact-card{background:#fff;border-radius:16px;margin:20px;overflow:hidden;box-shadow:0 2px 12px rgba(31,78,216,.07);border:1px solid var(--border)}
+.contact-item{display:flex;align-items:center;gap:14px;padding:16px 20px;border-bottom:1px solid var(--border);text-decoration:none;transition:background .15s}
+.contact-item:last-child{border-bottom:none}
+.contact-item:active{background:var(--blue-light)}
+.contact-icon{width:42px;height:42px;border-radius:12px;background:var(--blue-light);display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:20px}
+.contact-text h4{font-size:13px;font-weight:700;color:var(--text)}
+.contact-text p{font-size:12px;color:var(--muted);margin-top:2px}
+.chevron{margin-left:auto;color:var(--muted)}
+.location-card{background:var(--blue);border-radius:16px;margin:0 20px 20px;padding:20px}
+.location-card h3{font-size:14px;font-weight:700;color:#fff;margin-bottom:6px}
+.location-card p{font-size:13px;color:rgba(255,255,255,.75);line-height:1.6}
+</style>
+</head>
+<body>
+
+<!-- HOME -->
+<div class="page active" id="page-home">
+  <div class="hero">
+    <div class="hero-inner">
+      <div class="hero-logo"><img src="https://i.imgur.com/placeholder.png" alt="Proficients" onerror="this.parentElement.style.background='#1F4ED8'"></div>
+      <h1>Start Your Own<br><span>WiFi Business</span></h1>
+      <p>We install, configure and fully manage your hotspot — you earn passively every month.</p>
+      <div class="hero-badge"><span class="pulse"></span> Currently accepting new clients</div>
+    </div>
+  </div>
+  <div class="stats-strip">
+    <div class="stat-card"><div class="stat-num">6+</div><div class="stat-label">Services Offered</div></div>
+    <div class="stat-card"><div class="stat-num">0</div><div class="stat-label">Tech Skills Needed</div></div>
+    <div class="stat-card"><div class="stat-num">UG</div><div class="stat-label">Serving Uganda</div></div>
+  </div>
+  <div class="section">
+    <div class="section-title">Our Services</div>
+    <div class="services-grid">
+      <div class="service-card"><div class="svc-icon">🏠</div><div class="svc-info"><h3>Home Business Installation</h3><p>We set up a complete WiFi hotspot business at your location.</p></div><div class="svc-arrow"><svg fill="none" viewBox="0 0 24 24" stroke="currentColor" width="18" height="18"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/></svg></div></div>
+      <div class="service-card"><div class="svc-icon">📡</div><div class="svc-info"><h3>WiFi Business Management</h3><p>We handle everything — uptime, users, performance.</p></div><div class="svc-arrow"><svg fill="none" viewBox="0 0 24 24" stroke="currentColor" width="18" height="18"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/></svg></div></div>
+      <div class="service-card"><div class="svc-icon">⚙️</div><div class="svc-info"><h3>Router Configuration & Setup</h3><p>Professional configuration for maximum performance.</p></div><div class="svc-arrow"><svg fill="none" viewBox="0 0 24 24" stroke="currentColor" width="18" height="18"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/></svg></div></div>
+      <div class="service-card"><div class="svc-icon">🔍</div><div class="svc-info"><h3>Site Inspection & Site Search</h3><p>We assess your location and find the best setup for you.</p></div><div class="svc-arrow"><svg fill="none" viewBox="0 0 24 24" stroke="currentColor" width="18" height="18"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/></svg></div></div>
+      <div class="service-card"><div class="svc-icon">📍</div><div class="svc-info"><h3>Site Visit</h3><p>Our team visits your location before any work begins.</p></div><div class="svc-arrow"><svg fill="none" viewBox="0 0 24 24" stroke="currentColor" width="18" height="18"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/></svg></div></div>
+      <div class="service-card"><div class="svc-icon">🎧</div><div class="svc-info"><h3>Customer Care Services</h3><p>Ongoing support for you and your WiFi customers.</p></div><div class="svc-arrow"><svg fill="none" viewBox="0 0 24 24" stroke="currentColor" width="18" height="18"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/></svg></div></div>
+    </div>
+  </div>
+  <button class="cta-btn" onclick="showPage('apply')">Apply to Start Your WiFi Business →</button>
+</div>
+
+<!-- ABOUT -->
+<div class="page" id="page-about">
+  <div class="page-header"><h2>About Proficients</h2><p>WiFi Business Installation & Management</p></div>
+  <div class="about-card" style="margin-top:20px;"><h3>Who We Are</h3><p>Proficients is a WiFi business installation and management company based in Uganda. We help ordinary people become WiFi business owners — with zero technical knowledge required. We handle the hard part. You earn.</p></div>
+  <div class="about-card"><h3>Our Mission</h3><p>To make WiFi business ownership accessible to every Ugandan — by providing end-to-end installation, automation, and management services that let our clients earn passively from their own hotspot businesses.</p></div>
+  <div class="section" style="padding-bottom:20px;"><div class="section-title">How It Works</div></div>
+  <div class="how-steps">
+    <div class="step"><div class="step-left"><div class="step-num">1</div><div class="step-line"></div></div><div class="step-content"><h4>You Apply</h4><p>Fill out our form. We get in touch within 24 hours to discuss your goals.</p></div></div>
+    <div class="step"><div class="step-left"><div class="step-num">2</div><div class="step-line"></div></div><div class="step-content"><h4>Site Inspection</h4><p>Our team visits your location and creates a tailored plan.</p></div></div>
+    <div class="step"><div class="step-left"><div class="step-num">3</div><div class="step-line"></div></div><div class="step-content"><h4>We Install & Configure</h4><p>Professional installation. Your hotspot is live and ready for customers.</p></div></div>
+    <div class="step"><div class="step-left"><div class="step-num">4</div><div class="step-line"></div></div><div class="step-content"><h4>We Manage Everything</h4><p>Uptime, user management, performance — all handled by Proficients.</p></div></div>
+    <div class="step"><div class="step-left"><div class="step-num">5</div></div><div class="step-content"><h4>You Earn</h4><p>Your WiFi hotspot generates income every month. Fully automated.</p></div></div>
+  </div>
+</div>
+
+<!-- APPLY -->
+<div class="page" id="page-apply">
+  <div class="page-header"><h2>Start Your Application</h2><p>Takes less than 2 minutes. We'll call you back.</p></div>
+  <div class="form-wrap">
+    <div class="form-group"><label>Full Name</label><input type="text" id="f-name" placeholder="Your full name"></div>
+    <div class="form-group"><label>Phone Number</label><input type="tel" id="f-phone" placeholder="e.g. 0756 483 589"></div>
+    <div class="form-group"><label>Email Address <span class="optional">(optional)</span></label><input type="email" id="f-email" placeholder="your@email.com"></div>
+    <div class="form-group"><label>Location / Area</label><input type="text" id="f-location" placeholder="e.g. Namasuba, Kampala"></div>
+    <div class="form-group"><label>Service Interested In</label>
+      <select id="f-service">
+        <option value="">Select a service...</option>
+        <option>Home Business Installation</option>
+        <option>WiFi Business Management</option>
+        <option>Router Configuration & Setup</option>
+        <option>Site Inspection & Site Search</option>
+        <option>Site Visit</option>
+        <option>Full Package (All Services)</option>
+      </select>
+    </div>
+    <div class="form-group"><label>Tell Us About Your Situation <span class="optional">(optional)</span></label><textarea id="f-message" placeholder="E.g. I have a shop in Namasuba and want to offer WiFi to customers..."></textarea></div>
+    <button class="submit-btn" id="submit-btn" onclick="submitForm()">Submit Application</button>
+    <div class="success-box" id="success-box">
+      <div class="check">✅</div>
+      <h3>Application Received!</h3>
+      <p>Thank you! A Proficients team member will contact you within 24 hours via WhatsApp or call.</p>
+    </div>
+  </div>
+</div>
+
+<!-- AI CHAT -->
+<div class="page" id="page-chat">
+  <div class="chat-header">
+    <div class="chat-avatar"><img src="https://i.imgur.com/placeholder.png" alt="logo" onerror="this.style.display='none'"></div>
+    <div class="chat-info"><h2>Proficients AI</h2><p><span class="online-dot"></span>Ask anything about WiFi business</p></div>
+  </div>
+  <div class="chat-messages" id="chat-messages">
+    <div class="msg bot"><div class="msg-bubble">👋 Hi! I'm the Proficients AI assistant. Ask me anything about starting a WiFi business in Uganda, our services, or how it all works!</div><div class="msg-time">Now</div></div>
+  </div>
+  <div class="typing" id="typing"><div class="td"></div><div class="td"></div><div class="td"></div></div>
+  <div class="quick-replies">
+    <button class="qr-btn" onclick="sendQuick('How much can I earn?')">💰 How much can I earn?</button>
+    <button class="qr-btn" onclick="sendQuick('How do I get started?')">🚀 How to start?</button>
+    <button class="qr-btn" onclick="sendQuick('What services do you offer?')">📋 Services?</button>
+    <button class="qr-btn" onclick="sendQuick('Do I need technical knowledge?')">🤔 Need tech skills?</button>
+  </div>
+  <div class="chat-input-bar">
+    <input class="chat-input" id="chat-input" type="text" placeholder="Ask a question...">
+    <button class="send-btn" onclick
+      </div>
+</div>
+
+<!-- CONTACT -->
+<div class="page" id="page-contact">
+  <div class="page-header"><h2>Contact Us</h2><p>We're happy to hear from you</p></div>
+  <div class="contact-card" style="margin-top:20px;">
+    <a class="contact-item" href="tel:+256749516341"><div class="contact-icon">📞</div><div class="contact-text"><h4>Call Us</h4><p>+256 749 516 341</p></div><div class="chevron"><svg fill="none" viewBox="0 0 24 24" stroke="currentColor" width="16" height="16"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg></div></a>
+    <a class="contact-item" href="tel:+256756483589"><div class="contact-icon">📞</div><div class="contact-text"><h4>Call Us</h4><p>+256 756 483 589</p></div><div class="chevron"><svg fill="none" viewBox="0 0 24 24" stroke="currentColor" width="16" height="16"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg></div></a>
+    <a class="contact-item" href="tel:+256792287545"><div class="contact-icon">📞</div><div class="contact-text"><h4>Call Us</h4><p>+256 792 287 545</p></div><div class="chevron"><svg fill="none" viewBox="0 0 24 24" stroke="currentColor" width="16" height="16"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg></div></a>
+    <a class="contact-item" href="https://wa.me/256756483589" target="_blank"><div class="contact-icon">💬</div><div class="contact-text"><h4>WhatsApp</h4><p>Message us directly</p></div><div class="chevron"><svg fill="none" viewBox="0 0 24 24" stroke="currentColor" width="16" height="16"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg></div></a>
+    <a class="contact-item" href="mailto:proficients7@gmail.com"><div class="contact-icon">✉️</div><div class="contact-text"><h4>Email Us</h4><p>proficients7@gmail.com</p></div><div class="chevron"><svg fill="none" viewBox="0 0 24 24" stroke="currentColor" width="16" height="16"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg></div></a>
+  </div>
+  <div class="location-card"><h3>📍 Our Location</h3><p>Namasuba, Opposite Freedom City<br>Kampala, Uganda</p></div>
+  <p style="text-align:center;padding:10px 20px 0;font-size:13px;color:var(--muted);font-style:italic;">"Stay Proficient, Stay Connected"</p>
+</div>
+
+<!-- NAV -->
+<nav class="bottom-nav">
+  <button class="nav-btn active" onclick="showPage('home')" id="nav-home"><svg fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"/></svg>Home<div class="nav-dot"></div></button>
+  <button class="nav-btn" onclick="showPage('about')" id="nav-about"><svg fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>About<div class="nav-dot"></div></button>
+  <button class="nav-btn" onclick="showPage('apply')" id="nav-apply"><svg fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/></svg>Apply<div class="nav-dot"></div></button>
+  <button class="nav-btn" onclick="showPage('chat')" id="nav-chat"><svg fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"/></svg>AI Chat<div class="nav-dot"></div></button>
+  <button class="nav-btn" onclick="showPage('contact')" id="nav-contact"><svg fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.948V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 7V5z"/></svg>Contact<div class="nav-dot"></div></button>
+</nav>
+
+<script>
+function showPage(id){document.querySelectorAll('.page').forEach(function(p){p.classList.remove('active')});document.querySelectorAll('.nav-btn').forEach(function(b){b.classList.remove('active')});document.getElementById('page-'+id).classList.add('active');document.getElementById('nav-'+id).classList.add('active');window.scrollTo(0,0)}
+
+function submitForm(){
+  var name=(document.getElementById('f-name').value||'').trim();
+  var phone=(document.getElementById('f-phone').value||'').trim();
+  var email=(document.getElementById('f-email').value||'').trim();
+  var location=(document.getElementById('f-location').value||'').trim();
+  var service=(document.getElementById('f-service').value||'').trim();
+  var message=(document.getElementById('f-message').value||'').trim();
+  if(!name||!phone||!location||!service){alert('Please fill in your name, phone, location and service.');return;}
+  var btn=document.getElementById('submit-btn');
+  btn.disabled=true;btn.textContent='Sending...';
+  var text='New Application from Proficients Website:\n\nName: '+name+'\nPhone: '+phone+'\n'+(email?'Email: '+email+'\n':'')+'Location: '+location+'\nService: '+service+(message?'\n\nMessage: '+message:'');
+  document.getElementById('submit-btn').style.display='none';
+  document.getElementById('success-box').style.display='block';
+  setTimeout(function(){window.open('https://wa.me/256756483589?text='+encodeURIComponent(text),'_blank')},500);
+}
+
+var chatHistory=[];
+var SYSTEM='You are the AI assistant for Proficients WiFi Management, a company in Uganda that installs and manages WiFi hotspot businesses. Services: Home Business Installation, WiFi Business Management, Router Configuration and Setup, Site Inspection and Site Search, Site Visit, Customer Care Services. Location: Namasuba Opposite Freedom City Kampala Uganda. WhatsApp: 0756483589. Email: proficients7@gmail.com. Zero technical knowledge needed. Keep responses short, warm and conversational. Encourage people to apply or contact. Do not discuss pricing.';
+
+document.getElementById('chat-input').addEventListener('keydown',function(e){if(e.key==='Enter')sendMessage()});
+
+function sendQuick(text){document.getElementById('chat-input').value=text;sendMessage()}
+
+function sendMessage(){
+  var input=document.getElementById('chat-input');
+  var text=(input.value||'').trim();
+  if(!text)return;
+  input.value='';
+  addMsg(text,'user');
+  chatHistory.push({role:'user',content:text});
+  getBotReply();
+}
+
+function addMsg(text,role){
+  var msgs=document.getElementById('chat-messages');
+  var div=document.createElement('div');
+  div.className='msg '+role;
+  var now=new Date().toLocaleTimeString([],{hour:'2-digit',minute:'2-digit'});
+  div.innerHTML='<div class="msg-bubble">'+text+'</div><div class="msg-time">'+now+'</div>';
+  msgs.appendChild(div);
+  msgs.scrollTop=msgs.scrollHeight;
+}
+
+function getBotReply(){
+  var typing=document.getElementById('typing');
+  typing.classList.add('show');
+  document.getElementById('chat-messages').scrollTop=9999;
+  fetch('https://api.anthropic.com/v1/messages',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({model:'claude-sonnet-4-20250514',max_tokens:1000,system:SYSTEM,messages:chatHistory})})
+  .then(function(r){return r.json()})
+  .then(function(d){typing.classList.remove('show');var reply=d.content[0].text;chatHistory.push({role:'assistant',content:reply});addMsg(reply,'bot')})
+  .catch(function(){typing.classList.remove('show');addMsg('Sorry, having trouble connecting. Please WhatsApp us: 0756483589 📱','bot')});
+}
+</script>
+</body>
+  </html>
